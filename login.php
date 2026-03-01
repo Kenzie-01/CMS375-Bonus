@@ -56,24 +56,5 @@ session_start();
     <p style="color: red;">
         <?php echo $message; ?>
     </p>
-
-<?php
-$con = new mysqli("localhost", "root", "", "SocialMediaDB");
-
-$hashed1 = password_hash('676767', PASSWORD_DEFAULT);
-$stmt = $con->prepare("UPDATE Users SET password = ? WHERE username = 'mackenzie'");
-$stmt->bind_param("s", $hashed1);
-$stmt->execute();
-
-$hashed2 = password_hash('123456', PASSWORD_DEFAULT);
-$stmt = $con->prepare("UPDATE Users SET password = ? WHERE username = 'studentA'");
-$stmt->bind_param("s", $hashed2);
-$stmt->execute();
-
-echo "Passwords updated successfully!";
-$con->close();
-?>
-
 </body>
-
 </html>
